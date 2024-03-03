@@ -44,13 +44,14 @@ public class PlayerController : MonoBehaviour
         Vector3 mousepos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
         if(mousepos.x < playerScreenPoint.x){
-           mySpriteRenderer.flipX = false;
-            Debug.Log("nah");
+           mySpriteRenderer.flipX = true;
+            Debug.Log("flipped");
         }
         else{
            
-              mySpriteRenderer.flipX = true;
-            Debug.Log("flipped");
+             
+             mySpriteRenderer.flipX = false;
+            Debug.Log("nah");
         }
     }
 
