@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8876765199005250309}
   - component: {fileID: 4641107566419506307}
   - component: {fileID: 853369710053999774}
+  - component: {fileID: 3300571125537442464}
   m_Layer: 0
   m_Name: DragonSlime
   m_TagString: Untagged
@@ -191,9 +192,22 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.13704419}
   serializedVersion: 2
   m_Radius: 1.0196083
+--- !u!114 &3300571125537442464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236253758609576854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa863f15bbfed344887f83d8c145cd00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
