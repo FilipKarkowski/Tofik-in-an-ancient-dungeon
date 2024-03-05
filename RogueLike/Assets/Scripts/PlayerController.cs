@@ -5,12 +5,17 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public bool FacingLeft{ get {return facingLeft;} set {facingLeft = value;}}
     [SerializeField] private float moveSpeed = 1f;
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
+
+    private bool facingLeft = false;
+     
 
     private void Awake(){
         playerControls = new PlayerControls();
@@ -43,14 +48,14 @@ public class PlayerController : MonoBehaviour
     private void AdjustPlayerFacingDirection(){
         Vector3 mousepos = Input.mousePosition;
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        
         if(mousepos.x < playerScreenPoint.x){
-           mySpriteRenderer.flipX = false;
-            Debug.Log("nah");
+            mySpriteRenderer.flipX = true;
+            FacingLeft = true;
         }
         else{
-           
-              mySpriteRenderer.flipX = true;
-            Debug.Log("flipped");
+             mySpriteRenderer.flipX = false;
+             FacingLeft = false;
         }
     }
 
