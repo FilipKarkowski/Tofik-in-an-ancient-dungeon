@@ -16,6 +16,13 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int DamageSource){
         currentHealth -= DamageSource;
+        Debug.Log(gameObject.name+" took damage " + "Current health:"+currentHealth);
+        if(currentHealth <= 0){
+            Destroy(gameObject);
+            Debug.Log(gameObject.name+" was killed");
+        }
         Debug.Log(currentHealth);
     }
+
+    
 }
