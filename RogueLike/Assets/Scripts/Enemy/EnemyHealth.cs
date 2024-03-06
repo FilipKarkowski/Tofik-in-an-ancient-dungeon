@@ -7,12 +7,19 @@ public class EnemyHealth : MonoBehaviour
 {
     // Start is called before the first frame updat
     [SerializeField] private int startingHealth = 3;
+    [SerializeField] private float knockforce =5f;
 
-    SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
+    private KnockBack knockBack;
+
     private bool isDamaged = false;
+
 
     private int currentHealth;
 
+    private void Awake() {
+        knockBack = GetComponent<KnockBack>();
+    }
     private void Start() {
         spriteRenderer = GetComponentInParent<SpriteRenderer>();
          currentHealth = startingHealth;
@@ -36,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int DamageSource){
         currentHealth -= DamageSource;
         isDamaged = true;
+        knockBack.GetKnockedBack(PlayerController.Instance.transform, knockforce);
         Debug.Log(gameObject.name+" took damage " + "Current health:"+currentHealth);
         if(currentHealth <= 0){
             Destroy(gameObject);

@@ -754,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &742466252
 Transform:
   m_ObjectHideFlags: 0
@@ -997,6 +997,18 @@ PrefabInstance:
     - target: {fileID: 236253758609576854, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
       propertyPath: m_Name
       value: DragonSlime (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 282444662737586404, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 282444662737586404, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 282444662737586404, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2695286597068884516, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
       propertyPath: m_LocalPosition.x
