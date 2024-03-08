@@ -7,11 +7,12 @@ public class EnemyPathFinding : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private float moveSpeed = 2f;
+    private KnockBack knockBack;
     Rigidbody2D rb;
     private Vector2 moveDir;
-    void Start()
+    private void Awake()
     {
-
+        knockBack = GetComponent<KnockBack>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -22,6 +23,7 @@ public class EnemyPathFinding : MonoBehaviour
     }
 
     private void EnemyMove(){
+        if(knockBack.gettingKnockedBack) {return;}
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime) );
     }
     public void MoveTo(Vector2 targetPosition){
