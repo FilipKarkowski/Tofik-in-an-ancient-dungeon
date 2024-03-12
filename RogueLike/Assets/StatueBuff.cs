@@ -22,9 +22,10 @@ public class StatueBuff : MonoBehaviour
         if(isBuffed == true){
         if(other.gameObject.GetComponent<PlayerStats>()){
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
-            ActiveWeapon weaps = other.gameObject.GetComponent<ActiveWeapon>();
+            ActiveWeapon weaps = other.gameObject.GetComponentInChildren<ActiveWeapon>();
             PlayerStats stats = other.gameObject.GetComponent<PlayerStats>();
-            Debug.Log("Aktywowano wieze");
+            weaps.myWeapons = ActiveWeapon.Weapons.AncientSword;
+            Debug.Log("Statue was activated");
             isBuffed = false;
         }
            // weaps.myWeapons = ActiveWeapon.Weapons.AncientSword;
