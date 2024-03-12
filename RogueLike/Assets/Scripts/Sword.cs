@@ -17,12 +17,26 @@ public class Sword : MonoBehaviour
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
 
+    private Sword sword;
+
     private GameObject slashAnim;
+
+   
     private void Awake() {
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
         playerControls = new PlayerControls();
         myAnimator = GetComponent<Animator>();
+        sword = this;
+    }
+
+     public void SwordOn(){
+        weaponCollider.gameObject.SetActive(false);
+        sword.gameObject.SetActive(true);
+    }
+    public void SwordOff(){
+        weaponCollider.gameObject.SetActive(false);
+        sword.gameObject.SetActive(false);
     }
     void Start()
     {
