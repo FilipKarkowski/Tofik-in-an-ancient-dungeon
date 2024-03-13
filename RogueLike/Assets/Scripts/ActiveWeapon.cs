@@ -9,6 +9,8 @@ public class ActiveWeapon : MonoBehaviour
     
     [SerializeField] private Sword sword;
 
+    private bool isWeaponActivated = false;
+
     public enum Weapons{
         noWeapon,
         AncientSword,
@@ -23,18 +25,22 @@ public class ActiveWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isWeaponActivated){
         weaponChecker();
+        }
     }
 
     private void weaponChecker(){
      switch (myWeapons){
         case Weapons.noWeapon:
             sword.SwordOff();
+
         break;
 
         case Weapons.AncientSword:
             sword.SwordOn();
             Debug.Log("Weapon was changed to the ancient sword");
+            isWeaponActivated = true;
         break;
 
         case Weapons.Bow:

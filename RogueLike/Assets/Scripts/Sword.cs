@@ -31,7 +31,7 @@ public class Sword : MonoBehaviour
     }
 
      public void SwordOn(){
-        weaponCollider.gameObject.SetActive(false);
+        weaponCollider.gameObject.SetActive(true);
         sword.gameObject.SetActive(true);
     }
     public void SwordOff(){
