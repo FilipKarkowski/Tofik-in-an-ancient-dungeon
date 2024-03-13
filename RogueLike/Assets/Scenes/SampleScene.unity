@@ -1400,6 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 1431449575}
+  myWeapons: 0
 --- !u!1 &1293573428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1412,7 @@ GameObject:
   - component: {fileID: 1293573431}
   - component: {fileID: 1293573430}
   - component: {fileID: 1293573429}
+  - component: {fileID: 1293573432}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1524,12 +1526,24 @@ Transform:
   m_GameObject: {fileID: 1293573428}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.62, y: 1.51, z: 0}
+  m_LocalPosition: {x: 2.655, y: 1.548, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1293573432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293573428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e40a54d3355e214494c60369ba3fa2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1373472330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3057225843556236264, guid: 2d1ef4fe1ed3c504b902fe27f6c2c27b, type: 3}
@@ -1654,9 +1668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6e4e31d5a7f22544921a644178e42ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 742466252}
   slashAnimPreFab: {fileID: 1687109454996794386, guid: e22fd17d5b447b24f80f825dae1625e5, type: 3}
   slashAnimSpawnPoint: {fileID: 1118197974}
-  weaponCollider: {fileID: 742466252}
 --- !u!1 &1511205598
 GameObject:
   m_ObjectHideFlags: 0

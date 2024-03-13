@@ -10,8 +10,9 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] private Sword sword;
 
     private bool isWeaponActivated = false;
+    private bool isChangePossible = false;
 
-    public enum Weapons{
+    public enum Weapons{ //weapon list
         noWeapon,
         AncientSword,
         Bow,
@@ -25,12 +26,12 @@ public class ActiveWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isWeaponActivated){
+        if(!isWeaponActivated){ // if player has no weapon check his weapons until got assigned 
         weaponChecker();
         }
     }
 
-    private void weaponChecker(){
+    private void weaponChecker(){ //Check current player weapon 
      switch (myWeapons){
         case Weapons.noWeapon:
             sword.SwordOff();

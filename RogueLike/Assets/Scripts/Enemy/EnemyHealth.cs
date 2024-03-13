@@ -6,14 +6,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     // Start is called before the first frame updat
-    [SerializeField] private int startingHealth = 3;
-    [SerializeField] private float knockforce =5f;
+    [SerializeField] private int startingHealth = 3;    // Starting health 
+    [SerializeField] private float knockforce = 5f; // Force that enemy will get after getting hitted 
 
     private SpriteRenderer spriteRenderer;
     private KnockBack knockBack;
 
-    private bool isDamaged = false;
-
+    private bool isDamaged = false; 
 
     private int currentHealth;
 
@@ -21,36 +20,37 @@ public class EnemyHealth : MonoBehaviour
         knockBack = GetComponent<KnockBack>();
     }
     private void Start() {
-        spriteRenderer = GetComponentInParent<SpriteRenderer>();
-         currentHealth = startingHealth;
+        spriteRenderer = GetComponentInParent<SpriteRenderer>(); // Getting the enemy sprite renderer from main parent object
+        currentHealth = startingHealth; // Setting current health to the max health
          
     }
 
     private void Update() {
         if(isDamaged){
-        StartCoroutine(GotDamageIndicator());
+        StartCoroutine(GotDamageIndicator()); // if isdamaged start coroutine for changing color or add affects/animation.
         }
     }
     private IEnumerator GotDamageIndicator()
     {
-        spriteRenderer.color = Color.red;
-        Debug.Log("Damage effect activated");
-       yield return new WaitForSeconds(0.2f);
-       spriteRenderer.color = Color.white;
-       isDamaged=false;
+        /*
+        Setting player damage indicator, changing color, can be changed for some animation event in the future. 
+
+        */
+        spriteRenderer.color = Color.red; // change enemy color after got hitted
+    
+        yield return new WaitForSeconds(0.2f);
+        
+        spriteRenderer.color = Color.white;
+        isDamaged=false;
 
     }
     public void TakeDamage(int DamageSource){
-        currentHealth -= DamageSource;
-        isDamaged = true;
-        knockBack.GetKnockedBack(PlayerController.Instance.transform, knockforce);
-        Debug.Log(gameObject.name+" took damage " + "Current health:"+currentHealth);
+        currentHealth -= DamageSource; // take damage amount from the current health points.
+        isDamaged = true; // sett object flag to the damaged
+        knockBack.GetKnockedBack(PlayerController.Instance.transform, knockforce); 
         if(currentHealth <= 0){
             Destroy(gameObject);
-            Debug.Log(gameObject.name+" was killed");
         }
-        Debug.Log(currentHealth);
     }
 
-    
 }
