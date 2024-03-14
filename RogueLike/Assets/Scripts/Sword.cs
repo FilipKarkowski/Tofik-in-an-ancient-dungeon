@@ -5,70 +5,58 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : Weapon
 {
-    // Start is called before the first frame update
-    [SerializeField] GameObject slashAnimPreFab;
-    [SerializeField] Transform slashAnimSpawnPoint;
+	// Start is called before the first frame update
+	//Object
+	
+	//Colider
+	[SerializeField] private Transform weaponCollider;
 
-    [SerializeField] private Transform weaponCollider;
-    private PlayerControls playerControls;
-    private Animator myAnimator;
-    private PlayerController playerController;
-    private ActiveWeapon activeWeapon;
+	//Animatio
+	private GameObject slashAnim;
+ // Weapon animator object
+	[SerializeField] GameObject slashAnimPreFab; // SerializeField for slash animation prefab
+	[SerializeField] Transform slashAnimSpawnPoint; // Invisible object for spawning slash animation 
 
-    private GameObject slashAnim;
-    private void Awake() {
-        playerController = GetComponentInParent<PlayerController>();
-        activeWeapon = GetComponentInParent<ActiveWeapon>();
-        playerControls = new PlayerControls();
-        myAnimator = GetComponent<Animator>();
-    }
-    void Start()
-    {
-       playerControls.Combat.Attack.started += _ => Attack();
-    }
-    private void OnEnable() {
-        playerControls.Enable();
-    }
-    private void Update() {
-        MouseFollowWithOffSet();
-    }
-      public void DoneAttackingAnimationEvent(){
-        weaponCollider.gameObject.SetActive(false);
-    }
+	 internal override void WeaponOn()
+	{ // Method for ActiveWeapon setting.
+		base.WeaponOn();
+		Debug.Log("WeaponOn sword");
+		weaponCollider.gameObject.SetActive(true);
+	}
+	internal override void WeaponOff()
+	{ // Method for ActiveWeapon setting.
+		base.WeaponOff();
+		Debug.Log("WeaponOff sword");
+		weaponCollider.gameObject.SetActive(false);
+	}
 
-    private void Attack(){
-        myAnimator.SetTrigger("Attack");
-        weaponCollider.gameObject.SetActive(true);
-        
-    }
-    public void AttackFlipAnimEvent(){
-        slashAnim = Instantiate(slashAnimPreFab, slashAnimSpawnPoint.position, Quaternion.identity);
-        slashAnim.transform.parent = this.transform.parent;
-        if(playerController.FacingLeft){
-            slashAnim.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else{
-            slashAnim.GetComponent<SpriteRenderer>().flipX = false;
-        }
-        
-    }
+	public void DoneAttackingAnimationEvent()
+	{
+		weaponCollider.gameObject.SetActive(false); // Turning off weapon collider after atack end.
+	}
 
-  
-    private void MouseFollowWithOffSet(){
-        Vector3 mousepos = Input.mousePosition;
-        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(playerController.transform.position);
+	protected override void Attack()
+	{
+		base.Attack();
+		weaponCollider.gameObject.SetActive(true); // Turning on weapon collider after attack start.
+	}
+	public void AttackFlipAnimEvent()
+	{
+		slashAnim = Instantiate(slashAnimPreFab, slashAnimSpawnPoint.position, Quaternion.identity);
+		slashAnim.transform.parent = this.transform.parent;
+		if (playerController.FacingLeft)
+		{
+			slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+		}
+		else
+		{
+			slashAnim.GetComponent<SpriteRenderer>().flipX = false;
+		}
 
-        float angle = Mathf.Atan2(mousepos.y, mousepos.x) * Mathf.Rad2Deg;
+	}
 
-        if (mousepos.x < playerScreenPoint.x){
-            activeWeapon.transform.rotation = Quaternion.Euler(0, -180, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, -180, angle);
 
-        }else {
-            activeWeapon.transform.rotation = Quaternion.Euler(0,0,angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, 0,angle);
-        }
-    }
+
 }
