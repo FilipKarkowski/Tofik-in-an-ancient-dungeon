@@ -11,6 +11,7 @@ internal void OnTriggerEnter2D(Collider2D other)
 	
 		if(wasActivated == false)
 	{
+			
 		if(other.gameObject.GetComponent<PlayerStats>())
 		{
 			StatueAction(other);
