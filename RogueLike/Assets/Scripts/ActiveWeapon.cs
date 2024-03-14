@@ -1,57 +1,62 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ActiveWeapon : MonoBehaviour 
 {
-    // Start is called before the first frame update
-    
-    [SerializeField] private Sword sword;
+	// Start is called before the first frame update
+	
+	//[SerializeField] private Sword sword;
+	
+	[SerializeField] internal Weapon weapon;
 
-    private bool isWeaponActivated = false;
-    private bool isChangePossible = false;
+	[SerializeField] internal Weapon[] weapons;
 
-    public enum Weapons{ //weapon list
-        noWeapon,
-        AncientSword,
-        Bow,
-    }
+	private bool isWeaponActivated = false;
+	//private bool isChangePossible = false;
 
-    public Weapons myWeapons = Weapons.noWeapon;
-    void Start()
-    {
-        sword = GetComponentInChildren<Sword>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if(!isWeaponActivated){ // if player has no weapon check his weapons until got assigned 
-        weaponChecker();
-        }
-    }
+	// public enum Weapons
+	// { //weapon list
+	// 	noWeapon,
+	// 	AncientSword,
+	// 	Bow,
+	// }
 
-    private void weaponChecker(){ //Check current player weapon 
-     switch (myWeapons){
-        case Weapons.noWeapon:
-            sword.SwordOff();
-
-        break;
-
-        case Weapons.AncientSword:
-            sword.SwordOn();
-            Debug.Log("Weapon was changed to the ancient sword");
-            isWeaponActivated = true;
-        break;
-
-        case Weapons.Bow:
-
-        break;
-
-
-
-    }
-
-
-    }
+	//public Weapons myWeapons = Weapons.noWeapon;
+	void Start()
+	{
+		weapons = FindObjectsOfType<Weapon>();
+		WeaponsOff();
+		//sword = GetComponentInChildren<Sword>();
+		
+	}
+	
+	private void WeaponsOff()
+	{
+		foreach(Weapon weapon in weapons)
+		{
+			weapon.WeaponOff();
+		}
+	}
+	// Update is called once per frame
+	void Update()
+	{
+	
+	}
+	
+	internal void SetPlayerActiveWepon(int weaponid)
+	{
+		Debug.Log($"Player got weapon id:{weaponid}");
+		weapons[weaponid].WeaponOn();
+		weapon = weapons[weaponid];
+	}
 }
+	
+
+
+	
+

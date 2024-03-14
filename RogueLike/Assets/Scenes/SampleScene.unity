@@ -521,6 +521,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f4b91da877e9c94995ff709b5765305, type: 3}
+--- !u!1 &468837043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 468837044}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &468837044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468837043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1223261831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &475881250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1385,6 +1416,7 @@ Transform:
   - {fileID: 1431449572}
   - {fileID: 1118197974}
   - {fileID: 742466252}
+  - {fileID: 468837044}
   m_Father: {fileID: 702714413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1223261832
@@ -1399,8 +1431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db502ec7629e5d4fbe191c29a71c40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 1431449575}
-  myWeapons: 0
+  weapon: {fileID: 0}
+  weapons: []
 --- !u!1 &1293573428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1592,7 @@ GameObject:
   - component: {fileID: 1431449572}
   - component: {fileID: 1431449574}
   - component: {fileID: 1431449573}
+  - component: {fileID: 1431449576}
   - component: {fileID: 1431449575}
   m_Layer: 0
   m_Name: Sword
@@ -1671,6 +1704,21 @@ MonoBehaviour:
   weaponCollider: {fileID: 742466252}
   slashAnimPreFab: {fileID: 1687109454996794386, guid: e22fd17d5b447b24f80f825dae1625e5, type: 3}
   slashAnimSpawnPoint: {fileID: 1118197974}
+--- !u!114 &1431449576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431449571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feac273793bbe95439da939d5c6fa927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 742466252}
+  activeWeapon: {fileID: 1223261831}
+  playerController: {fileID: 702714414}
 --- !u!1 &1511205598
 GameObject:
   m_ObjectHideFlags: 0
