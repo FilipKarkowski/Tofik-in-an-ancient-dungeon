@@ -18,8 +18,8 @@ private Vector3 initialPosition;
 
 		while (elapsedTime < duration)
 		{
-			float xOffset = Random.Range(-1f, 1f) * magnitude;
-			float yOffset = Random.Range(-1f, 1f) * magnitude;
+			float xOffset = Random.Range(-0.2f, 0.2f) * magnitude;
+			float yOffset = Random.Range(-0.2f, 0.2f) * magnitude;
 
 			transform.localPosition = initialPosition + new Vector3(xOffset, yOffset, 0f);
 
