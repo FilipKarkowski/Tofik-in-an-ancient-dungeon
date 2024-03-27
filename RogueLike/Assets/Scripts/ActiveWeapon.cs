@@ -13,6 +13,7 @@ public class ActiveWeapon : MonoBehaviour
 	//[SerializeField] private Sword sword;
 	
 	[SerializeField] internal Weapon weapon;
+	[SerializeField] internal Weapon Basicweapon;
 
 	[SerializeField] internal Weapon[] weapons;
 
@@ -35,12 +36,13 @@ public class ActiveWeapon : MonoBehaviour
 		
 	}
 	
-	private void WeaponsOff()
+	internal void WeaponsOff()
 	{
 		foreach(Weapon weapon in weapons)
 		{
 			weapon.WeaponOff();
 		}
+		Basicweapon.WeaponOn();
 	}
 	// Update is called once per frame
 	void Update()

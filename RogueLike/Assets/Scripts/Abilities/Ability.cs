@@ -8,7 +8,7 @@ public class Ability : MonoBehaviour
 	
 	internal PlayerStats playerStats;
 	
-	private void Start() {
+	internal virtual void Start() {
 		playerStats = FindAnyObjectByType<PlayerStats>();
 	}
 	internal virtual void AbilityBuff(float BuffStrenght)

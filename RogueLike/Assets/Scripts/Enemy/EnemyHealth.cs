@@ -6,34 +6,34 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 	// Start is called before the first frame updat
-	[SerializeField] private int startingHealth = 3;    // Starting health 
-	[SerializeField] private float knockforce = 5f; // Force that enemy will get after getting hitted 
-	private HittedAnimation hittedAnimation;
+	[SerializeField] protected int startingHealth = 3;    // Starting health 
+	[SerializeField] protected float knockforce = 5f; // Force that enemy will get after getting hitted 
+	protected HittedAnimation hittedAnimation;
   
-	private KnockBack knockBack;
+	protected KnockBack knockBack;
 
-	private bool isDamaged = false; 
+	protected bool isDamaged = false; 
 
-	private int currentHealth;
+	internal int currentHealth;
 
-	private void Awake() {
+	protected virtual void Awake() {
 		knockBack = GetComponent<KnockBack>();
 	}
-	private void Start() {
+	protected virtual void Start() {
 		// Getting the enemy sprite renderer from main parent object
 		hittedAnimation = GetComponent<HittedAnimation>();
 		currentHealth = startingHealth; // Setting current health to the max health
 		 
 	}
 
-	private void Update() {
+	protected virtual void Update() {
 		if(isDamaged){
 		StartCoroutine(hittedAnimation.GotDamageIndicator()); 
 		isDamaged=false;// if isdamaged start coroutine for changing color or add affects/animation.
 		}
 	}
 	
-	public void TakeDamage(int DamageSource){
+	internal virtual void TakeDamage(int DamageSource){
 		currentHealth -= DamageSource; // take damage amount from the current health points.
 		isDamaged = true; // sett object flag to the damaged
 		knockBack.GetKnockedBack(PlayerController.Instance.transform, knockforce); 
@@ -41,5 +41,6 @@ public class EnemyHealth : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+
 
 }
