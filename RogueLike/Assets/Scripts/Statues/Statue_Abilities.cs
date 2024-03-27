@@ -9,7 +9,7 @@ public class Statue_Abilities : Statue
 	
 	[SerializeField] private float towerPower = 0.5f;
 	private void Start() {
-		abilities = FindObjectsOfType<Ability>();
+
 		TowerAbility = abilities[Random.Range(0,abilities.Length)];
 	 	
 	}

@@ -6,11 +6,12 @@ using UnityEngine;
 public class  Weapon : MonoBehaviour
 {
 	protected  WeaponPositioner weaponPositioner;
-	
+	internal bool canattack = true;
+	[SerializeField] internal float AttackCoolDown = 5f;
 	protected  Animator myAnimator;
 	protected  PlayerController playerController;
 	protected PlayerControls playerControls;
-	
+	[SerializeField] protected AttackCooldownIndicator attackCooldownIndicator;
 	protected  ActiveWeapon activeWeapon;
 	public GameObject currentWeapon;
 	
@@ -41,11 +42,23 @@ public class  Weapon : MonoBehaviour
 	
 		void Start()
 	{
-		playerControls.Combat.Attack.started += _ => Attack(); // Activate attack method after player attack input from mouse.
+				playerControls.Combat.Attack.started += _ => Attack(); // Activate attack method after player attack input from mouse.
 	}
 	
 	protected virtual void Attack()
 	{
+		attackCooldownIndicator.StartCounting(AttackCoolDown);
 		myAnimator.SetTrigger("Attack"); //Attack animation trigger. 
+		StartCoroutine(AttackCooldownRoutine());
+		//attackCooldownIndicator.StartCounting();
+	}
+	
+	protected virtual IEnumerator AttackCooldownRoutine()
+	{
+		
+		canattack=false;
+		
+		yield return new WaitForSeconds(AttackCoolDown);
+	
 	}
 }

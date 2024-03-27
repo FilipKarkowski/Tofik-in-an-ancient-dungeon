@@ -10,8 +10,14 @@ public class WeaponStatue : Statue
 	{
 	
 	ActiveWeapon aw = other.gameObject.GetComponentInChildren<ActiveWeapon>();
+	if(!(other.gameObject.GetComponentInChildren<ActiveWeapon>())){
 	aw.SetPlayerActiveWepon((Random.Range(0,aw.weapons.Length)));
 	Debug.Log("Statue was activated");
+	}
+	else
+	{
+		Debug.Log("Player alreay have a weapon");
+	}
 	}
 	
 
