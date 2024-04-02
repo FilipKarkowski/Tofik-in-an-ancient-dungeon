@@ -17,8 +17,8 @@ TagManager:
   - Enemy
   - Obstacle
   - Walls
-  - 
-  - 
+  - MinimapLive
+  - MinimapRoom
   - 
   - 
   - 
@@ -43,6 +43,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Minimap
+    uniqueID: 4252575125
     locked: 0
   - name: Floor
     uniqueID: 1911882145
