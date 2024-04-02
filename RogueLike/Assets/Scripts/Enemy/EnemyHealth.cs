@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
 	// Start is called before the first frame updat
-	[SerializeField] protected int startingHealth = 3;    // Starting health 
+	[SerializeField] internal int startingHealth = 3;    // Starting health 
 	[SerializeField] protected float knockforce = 5f; // Force that enemy will get after getting hitted 
 	protected HittedAnimation hittedAnimation;
   
