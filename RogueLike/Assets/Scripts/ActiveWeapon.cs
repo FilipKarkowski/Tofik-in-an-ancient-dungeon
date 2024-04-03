@@ -30,7 +30,7 @@ public class ActiveWeapon : MonoBehaviour
 	//public Weapons myWeapons = Weapons.noWeapon;
 	void Start()
 	{
-		weapons = FindObjectsOfType<Weapon>();
+
 		WeaponsOff();
 		//sword = GetComponentInChildren<Sword>();
 		
@@ -42,7 +42,6 @@ public class ActiveWeapon : MonoBehaviour
 		{
 			weapon.WeaponOff();
 		}
-		Basicweapon.WeaponOn();
 	}
 	// Update is called once per frame
 	void Update()
@@ -55,6 +54,12 @@ public class ActiveWeapon : MonoBehaviour
 		Debug.Log($"Player got weapon id:{weaponid}");
 		weapons[weaponid].WeaponOn();
 		weapon = weapons[weaponid];
+	}
+	
+	internal void SetCurrentWeapon()
+	{
+		WeaponsOff();
+		weapon.WeaponOn();
 	}
 }
 	

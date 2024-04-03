@@ -6,7 +6,7 @@ using UnityEngine;
 public class  Weapon : MonoBehaviour
 {
 	protected  WeaponPositioner weaponPositioner;
-	internal bool canattack = true;
+	[SerializeField] internal bool canattack = true;
 	[SerializeField] internal float AttackCoolDown = 5f;
 	protected  Animator myAnimator;
 	protected  PlayerController playerController;
@@ -15,17 +15,19 @@ public class  Weapon : MonoBehaviour
 	protected  ActiveWeapon activeWeapon;
 	public GameObject currentWeapon;
 	
-	internal virtual void WeaponOn()
-	{ // Method for ActiveWeapon setting.
-	Debug.Log($"Activated a weapon named"+ this.gameObject.name);
-		currentWeapon.gameObject.SetActive(true);
-	}
+internal virtual void WeaponOn()
+{
+    Debug.Log($"Activated a weapon named" + this.gameObject.name);
+    this.gameObject.SetActive(true);
+    canattack = true; // reset posssibility of weapon using
+}
 	
 	internal virtual void WeaponOff()
 	{ // Method for ActiveWeapon setting.
 	Debug.Log($"Deactivated a weapon named"+ this.gameObject.name);
-		currentWeapon.gameObject.SetActive(false);
-	}
+		//currentWeapon.gameObject.SetActive(false);
+		this.gameObject.SetActive(false);
+			}
 	protected virtual void Awake()
 	{
 		myAnimator = GetComponent<Animator>();
@@ -47,11 +49,19 @@ public class  Weapon : MonoBehaviour
 	
 	protected virtual void Attack()
 	{
+		if (this.gameObject.activeInHierarchy)
+	{
 		attackCooldownIndicator.StartCounting(AttackCoolDown);
 		myAnimator.SetTrigger("Attack"); //Attack animation trigger. 
+		
 		StartCoroutine(AttackCooldownRoutine());
 		//attackCooldownIndicator.StartCounting();
 	}
+	else
+		{
+			Debug.Log("Cannot attack yet. Cooldown in progress.");
+		}
+			}
 	
 	protected virtual IEnumerator AttackCooldownRoutine()
 	{

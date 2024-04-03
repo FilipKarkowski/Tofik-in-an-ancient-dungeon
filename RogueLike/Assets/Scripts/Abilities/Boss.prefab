@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2629539371547948977}
-  enemyHealth: {fileID: 900994815397090754}
+  enemyHealth: {fileID: 2443091861309342567}
   text: {fileID: 1431067926762418753}
 --- !u!1 &1500816135571354038
 GameObject:
@@ -499,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1494085406823985774, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
       propertyPath: startingHealth
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2851440370236743121, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
       propertyPath: m_LocalScale.x
@@ -553,7 +553,8 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1494085406823985774, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2851440370236743121, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
@@ -564,17 +565,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2443091861309342567}
   m_SourcePrefab: {fileID: 100100000, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
---- !u!114 &900994815397090754 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1494085406823985774, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
-  m_PrefabInstance: {fileID: 1746539862021957548}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841530532071236559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa863f15bbfed344887f83d8c145cd00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1841530532071236559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 122330028041340003, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}

@@ -8,7 +8,7 @@ public class ExploringRoomMinimap : MonoBehaviour
 	SpriteRenderer sr; 
 	
 	
-	private bool isExplored = false;
+	[SerializeField] private bool isExplored = false;
 	
 	
 	

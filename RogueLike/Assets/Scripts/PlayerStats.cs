@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour
 {
 [SerializeField] internal float maximumPlayerHealth = 9;
 [SerializeField] internal float defence;
-[SerializeField] internal float strength = 0.5f;
+[SerializeField] internal int strength = 2;
 [SerializeField] internal float moveSpeed = 1f;
 
 [SerializeField] private Slider slider;

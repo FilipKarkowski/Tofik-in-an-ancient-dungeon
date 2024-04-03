@@ -18,13 +18,13 @@ public class Claws : Weapon
 	{ // Method for ActiveWeapon setting.
 		base.WeaponOn();
 		Debug.Log("WeaponOn Claws");
-		weaponCollider.gameObject.SetActive(true);
+		//weaponCollider.gameObject.SetActive(true);
 	}
 	internal override void WeaponOff()
 	{ // Method for ActiveWeapon setting.
 		base.WeaponOff();
 		Debug.Log("WeaponOff Claws");
-		weaponCollider.gameObject.SetActive(false);
+		//weaponCollider.gameObject.SetActive(false);
 	}
 
 	protected override void Awake()

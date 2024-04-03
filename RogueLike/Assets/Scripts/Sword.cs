@@ -23,13 +23,13 @@ public class Sword : Weapon
 	{ // Method for ActiveWeapon setting.
 		base.WeaponOn();
 		Debug.Log("WeaponOn sword");
-		weaponCollider.gameObject.SetActive(true);
+		//weaponCollider.gameObject.SetActive(true);
 	}
 	internal override void WeaponOff()
 	{ // Method for ActiveWeapon setting.
 		base.WeaponOff();
 		Debug.Log("WeaponOff sword");
-		weaponCollider.gameObject.SetActive(false);
+		//weaponCollider.gameObject.SetActive(false);
 	}
 
 	public void DoneAttackingAnimationEvent()
@@ -39,8 +39,11 @@ public class Sword : Weapon
 
 	protected override void Attack()
 	{
+		if(canattack){
 		base.Attack();
-		weaponCollider.gameObject.SetActive(true); // Turning on weapon collider after attack start.
+		weaponCollider.gameObject.SetActive(true);
+		}
+		// Turning on weapon collider after attack start.
 	}
 	public void AttackFlipAnimEvent()
 	{

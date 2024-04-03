@@ -13,7 +13,10 @@ public class EnemyAttack : MonoBehaviour
 			CameraShake playercam = FindAnyObjectByType<CameraShake>();
 			PlayerStats playerStats = other.gameObject.GetComponent<PlayerStats>();
 			HittedAnimation hittedAnimation = other.gameObject.GetComponent<HittedAnimation>();
+			if(playerStats.defence < damagAmount)
+			{
 			playerStats.TakeDamage(damagAmount);
+			}
 			StartCoroutine(playercam.Shake(0.5f,0.5f));
 			StartCoroutine(hittedAnimation.GotDamageIndicator());
 			

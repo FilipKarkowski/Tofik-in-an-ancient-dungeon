@@ -41,7 +41,7 @@ public class AttackCooldownIndicator : MonoBehaviour
 		if (weaponCooldown > 0)
 		{
 			slider.value = weaponCooldown;
-			weaponCooldown -= 1f; 
+			weaponCooldown -= 1.1f; 
 			UpdateCountdownText();
 		}
 		else

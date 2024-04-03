@@ -14,15 +14,15 @@ private EnemyHealth enemyHealth;
 		knockBack.GetKnockedBack(PlayerController.Instance.transform, knockforce); 
 		if(currentHealth <= 0){
 			bossDeath();
-			Destroy(gameObject);
+			
 		}
 	}
 
 
 	private void bossDeath(){
 
-		Debug.Log("BossW");
-	
+		Debug.Log("BossDeathAction");
+	Destroy(gameObject);
 	}
 
 }

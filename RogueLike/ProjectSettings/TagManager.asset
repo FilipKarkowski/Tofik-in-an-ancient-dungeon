@@ -7,6 +7,8 @@ TagManager:
   - SpawnPoint
   - Rooms
   - Enemy
+  - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -44,8 +46,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Minimap
-    uniqueID: 4252575125
+  - name: MinimapRoom
+    uniqueID: 3272206159
+    locked: 0
+  - name: MinimapLive
+    uniqueID: 3772946439
     locked: 0
   - name: Floor
     uniqueID: 1911882145
