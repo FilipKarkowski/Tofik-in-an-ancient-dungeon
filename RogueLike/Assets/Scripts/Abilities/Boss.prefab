@@ -551,7 +551,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3077053415837105727, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
       propertyPath: moveSpeed
-      value: 7
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3556924162089947342, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
+      propertyPath: damagAmount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1494085406823985774, guid: fdcf9daf5a5fab041a7beabfef904278, type: 3}
@@ -582,7 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99d5d639fa4c704b99d28a83a5a6b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 30
   knockforce: 5
 --- !u!4 &4588795459858578045 stripped
 Transform:
