@@ -3057,6 +3057,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5894093630169396932, guid: 2b0af380172398e41b281ddc1ad96cb5, type: 3}
+      propertyPath: objecttospawn
+      value: 
+      objectReference: {fileID: 8513254547371254734, guid: d7f321fc8a925d448b3d47fe6690338a, type: 3}
     - target: {fileID: 7582949726952642495, guid: 2b0af380172398e41b281ddc1ad96cb5, type: 3}
       propertyPath: m_Name
       value: MobSpawnPoint
