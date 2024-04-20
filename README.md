@@ -11,7 +11,4 @@ XeoCity, in a tiny village, lived a cat named
  of a mysterious story. He fell into a hole, which turned out to be a gate
  to an ancient, abandoned chamber, like a gateway to a forgotten era.
 
- 
 ![](https://github.com/Xeoaxis/Tofik-in-an-ancient-dungeon/blob/main/TofikEyeCursedMode.gif)
-
-Test
